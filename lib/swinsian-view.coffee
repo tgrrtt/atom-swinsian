@@ -1,5 +1,5 @@
 {View} = require 'atom'
-iTunesDesktop = require './itunes-desktop'
+iTunesDesktop = require './swinsian-desktop'
 
 module.exports =
 class iTunesView extends View

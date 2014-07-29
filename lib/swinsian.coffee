@@ -1,4 +1,4 @@
-iTunesView = require './itunes-view'
+iTunesView = require './swinsian-view'
 
 module.exports =
   configDefaults: do ->
