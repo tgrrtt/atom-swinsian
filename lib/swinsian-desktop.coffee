@@ -5,8 +5,7 @@ class SwinsianDesktop
   @COMMANDS = [
     { name: 'next',     function: 'execute', action: 'next track' }
     { name: 'previous', function: 'execute', action: 'previous track' }
-    { name: 'play',     function: 'execute', action: 'play' }
-    { name: 'pause',    function: 'execute', action: 'pause' }
+    { name: 'play\/Pause',     function: 'execute', action: 'playpause' }
     { name: 'open',     function: 'execute', action: 'reopen activate'}
   ]
 

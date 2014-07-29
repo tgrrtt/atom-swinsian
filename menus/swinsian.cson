@@ -3,8 +3,7 @@ menu: [
   submenu: [
     label: 'Swinsian'
     submenu: [
-      { label: 'Play',               command: 'swinsian:play' }
-      { label: 'Pause',              command: 'swinsian:pause' }
+      { label: 'Play/Pause',         command: 'swinsian:play\/Pause' }
       { label: 'Next',               command: 'swinsian:next' }
       { label: 'Previous',           command: 'swinsian:previous' }
       { label: 'Open Current Track', command: 'swinsian:open' }

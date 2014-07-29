@@ -6,8 +6,7 @@
 ## Commands
 ```rb
 # Playstate
-Play
-Pause
+Play/Pause
 
 # Track
 Next
