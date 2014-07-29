@@ -1,0 +1,13 @@
+{
+  "name": "atom-swinsian",
+  "main": "./lib/itunes",
+  "version": "0.1.0",
+  "description": "Control Swinsian from Atom + Now Playing",
+  "repository": "https://github.com/tgrrtt/atom-swinsian",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "dependencies": {
+    "applescript": "0.2.1"
+  }
+}
