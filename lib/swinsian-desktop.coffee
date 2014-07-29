@@ -1,7 +1,7 @@
 applescript = require 'applescript'
 
 module.exports =
-class iTunesDesktop
+class SwinsianDesktop
   @COMMANDS = [
     { name: 'next',     function: 'execute', action: 'next track' }
     { name: 'previous', function: 'execute', action: 'previous track' }
@@ -21,9 +21,9 @@ class iTunesDesktop
 
   # Dynamic commands methods
   constructor: ->
-    for command in iTunesDesktop.COMMANDS
+    for command in SwinsianDesktop.COMMANDS
       do (command) ->
-        iTunesDesktop::[command.name] = ->
+        SwinsianDesktop::[command.name] = ->
           this[command.function](command.action)
 
   currentlyPlaying: (callback) ->

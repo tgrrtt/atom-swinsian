@@ -1,8 +1,8 @@
 {View} = require 'atom'
-iTunesDesktop = require './swinsian-desktop'
+SwinsianDesktop = require './swinsian-desktop'
 
 module.exports =
-class iTunesView extends View
+class SwinsianView extends View
   @CONFIGS = {
     showEqualizer:
       key: 'showEqualizer (WindowResizePerformanceIssue)'
@@ -11,14 +11,14 @@ class iTunesView extends View
   }
 
   @content: ->
-    @div class: 'itunes', =>
-      @div outlet: 'container', class: 'itunes-container inline-block', =>
-        @span outlet: 'soundBars', class: 'itunes-sound-bars', =>
-          @span class: 'itunes-sound-bar'
-          @span class: 'itunes-sound-bar'
-          @span class: 'itunes-sound-bar'
-          @span class: 'itunes-sound-bar'
-          @span class: 'itunes-sound-bar'
+    @div class: 'swinsian', =>
+      @div outlet: 'container', class: 'swinsian-container inline-block', =>
+        @span outlet: 'soundBars', class: 'swinsian-sound-bars', =>
+          @span class: 'swinsian-sound-bar'
+          @span class: 'swinsian-sound-bar'
+          @span class: 'swinsian-sound-bar'
+          @span class: 'swinsian-sound-bar'
+          @span class: 'swinsian-sound-bar'
 
         @a outlet: 'currentlyPlaying', href: 'javascript:',''
 
@@ -26,7 +26,7 @@ class iTunesView extends View
     @currentTrack = {}
     @currentState = null
     @initiated = false
-    @itunesDesktop = new iTunesDesktop
+    @swinsianDesktop = new SwinsianDesktop
 
     this.addCommands()
 
@@ -43,19 +43,19 @@ class iTunesView extends View
   # Commands
   addCommands: ->
     # Defaults
-    for command in iTunesDesktop.COMMANDS
+    for command in SwinsianDesktop.COMMANDS
       do (command) =>
-        atom.workspaceView.command "itunes:#{command.name}", '.editor', => @itunesDesktop[command.name]()
+        atom.workspaceView.command "swinsian:#{command.name}", '.editor', => @swinsianDesktop[command.name]()
 
   # Attach the view to the farthest right of the status bar
   attach: =>
     atom.workspaceView.statusBar.appendRight(this)
 
     @currentlyPlaying.on 'click', (e) =>
-      @itunesDesktop.openWindow()
+      @swinsianDesktop.openWindow()
 
     # Toggle equalizer on config change
-    showEqualizerKey = "iTunes.#{iTunesView.CONFIGS.showEqualizer.key}"
+    showEqualizerKey = "Swinsian.#{SwinsianView.CONFIGS.showEqualizer.key}"
     this.subscribe atom.config.observe showEqualizerKey, callNow: true, =>
       if atom.config.get(showEqualizerKey)
         @soundBars.removeAttr('data-hidden')
@@ -64,7 +64,7 @@ class iTunesView extends View
 
   afterAttach: =>
     setInterval =>
-      @itunesDesktop.currentState (state) =>
+      @swinsianDesktop.currentState (state) =>
         if state isnt @currentState
           @currentState = state
           @soundBars.attr('data-state', state)
@@ -79,7 +79,7 @@ class iTunesView extends View
         return if state is 'paused' and @initiated
 
         # Get current track data
-        @itunesDesktop.currentlyPlaying (data) =>
+        @swinsianDesktop.currentlyPlaying (data) =>
           return unless data.artist and data.track
           return if data.artist is @currentTrack.artist and data.track is @currentTrack.track
           @currentlyPlaying.text "#{data.artist} - #{data.track}"

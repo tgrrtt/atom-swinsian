@@ -1,15 +1,15 @@
-iTunesView = require './swinsian-view'
+SwinsianView = require './swinsian-view'
 
 module.exports =
   configDefaults: do ->
     configs = {}
-    for configName, configData of iTunesView.CONFIGS
+    for configName, configData of SwinsianView.CONFIGS
       configs[configData.key] = configData.default
 
     configs
 
   activate: (state) ->
-    @itunesView = new iTunesView(state.itunesViewState)
+    @swinsianView = new SwinsianView(state.swinsianViewState)
 
   deactivate: ->
-    @itunesView.destroy()
+    @swinsianView.destroy()

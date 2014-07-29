@@ -1,14 +1,14 @@
 // Variables ---------------------------------------------
 @import "ui-variables";
 
-// iTunes ------------------------------------------------
-.itunes {
+// Swinsian ------------------------------------------------
+.swinsian {
   display: inline-block;
 
   a { color: @text-color-subtle }
 }
 
-.itunes-container {
+.swinsian-container {
   display: none;
   max-width: 300px;
   white-space: nowrap;
@@ -19,7 +19,7 @@
 }
 
 // Sound bars --------------------------------------------
-.itunes-sound-bars {
+.swinsian-sound-bars {
   display: inline-block;
   position: relative;
   margin-right: .4em;
@@ -27,7 +27,7 @@
   overflow: hidden;
 
   &[data-state="paused"] {
-    .itunes-sound-bar {
+    .swinsian-sound-bar {
       -webkit-animation-play-state: paused;
     }
   }
@@ -35,19 +35,19 @@
   &[data-hidden] { display: none }
 }
 
-.itunes-sound-bar + .itunes-sound-bar { margin-left: 1px }
-.itunes-sound-bar {
+.swinsian-sound-bar + .swinsian-sound-bar { margin-left: 1px }
+.swinsian-sound-bar {
   display: inline-block;
   width: 3px; height: 3px;
   background: @text-color-subtle;
   -webkit-animation: sound 400ms linear infinite alternate;
 }
 
-.itunes-sound-bar:nth-child(1) { -webkit-animation-duration: 274ms }
-.itunes-sound-bar:nth-child(2) { -webkit-animation-duration: 233ms }
-.itunes-sound-bar:nth-child(3) { -webkit-animation-duration: 207ms }
-.itunes-sound-bar:nth-child(4) { -webkit-animation-duration: 258ms }
-.itunes-sound-bar:nth-child(5) { -webkit-animation-duration: 200ms }
+.swinsian-sound-bar:nth-child(1) { -webkit-animation-duration: 274ms }
+.swinsian-sound-bar:nth-child(2) { -webkit-animation-duration: 233ms }
+.swinsian-sound-bar:nth-child(3) { -webkit-animation-duration: 207ms }
+.swinsian-sound-bar:nth-child(4) { -webkit-animation-duration: 258ms }
+.swinsian-sound-bar:nth-child(5) { -webkit-animation-duration: 200ms }
 
 
 @-webkit-keyframes sound {
